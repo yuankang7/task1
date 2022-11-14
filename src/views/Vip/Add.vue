@@ -4,7 +4,7 @@
           label-position="right"
           label-width="auto"
           :model="formLabelAlign"
-          class="chapter_add">
+          class="chapter_add"> 
           <el-form-item label="会员名">
             <el-input v-model="formLabelAlign.name"></el-input>
           </el-form-item>
@@ -104,4 +104,4 @@
   .vipAdd .el-form-item {
       width: 500px;
   }
-  </style>
+  </style>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              

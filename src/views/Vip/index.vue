@@ -52,7 +52,7 @@ export default {
   },
   methods: {
     reVip() {
-      this.$http({
+      this.$http({ 
         url: 'api/vip'
       }).then(res => {
         if(res.data.status == 'error') {

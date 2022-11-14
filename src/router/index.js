@@ -7,7 +7,6 @@ Vue.use(VueRouter)
 // 引入组件 使用懒加载引入
 const Login = () => import("@/views/Login/index.vue");
 const Layout = () => import("@/Layout/index.vue");
-
 // 首页
 const Home = () => import('@/views/Home/index');
 // 标题
@@ -25,9 +24,51 @@ const Video = () => import('@/views/Video/index');
 //会员
 const Vip = () => import('@/views/Vip/index');
 const zfbOrder = () => import('@/views/zfbOrder/index');
+const logs = () => import('@/views/Logs/index');
+const model = () => import('@/views/Model/index');
+const WxOrder = () => import('@/views/WxOrder/index');
 
  
 const routes = [
+  {
+    path: '/WxOrder',
+    component: Layout, 
+    children: [
+      {
+        path: '',
+        component: WxOrder,
+        meta: {
+          title: '模块管理'
+        }
+      }
+    ]
+  },
+  {
+    path: '/model',
+    component: Layout, 
+    children: [
+      {
+        path: '',
+        component: model,
+        meta: {
+          title: '模块管理'
+        }
+      }
+    ]
+  },
+  {
+    path: '/logs',
+    component: Layout, 
+    children: [
+      {
+        path: '',
+        component: logs,
+        meta: {
+          title: '日志管理'
+        }
+      }
+    ]
+  },
   {
     path: '/ZFB',
     component: Layout, 
@@ -36,7 +77,7 @@ const routes = [
         path: '',
         component: zfbOrder,
         meta: {
-          title: '支付宝'
+          title: '支付宝订单'
         }
       }
     ]

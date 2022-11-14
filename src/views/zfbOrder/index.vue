@@ -1,19 +1,19 @@
 <template>
   <div>
-    <el-table :data="list" style="width: 100%" class="table">
+    <el-table :data="tableData" style="width: 100%" class="table">
             <el-table-column prop="id" label="编号" width="50">
             </el-table-column>
-            <el-table-column prop="username" label="用户名" width="100">
+            <el-table-column prop="vip" label="商品名" width="100">
             </el-table-column>
-            <el-table-column prop="email" label="邮箱" width="200">
+            <el-table-column prop="qs_trade_no" label="訂單號" width="250">
             </el-table-column>
-            <el-table-column prop="phone" label="电话">
+            <el-table-column prop="pay_state" label="支付状态" width="200">
             </el-table-column>
-            <el-table-column prop="gender" :formatter="formatter" label="性别" width="80">
+            <el-table-column prop="total_amount" label="价格" width="100">
             </el-table-column>
-            <el-table-column prop="create_time" label="创建时间" width="200">
+            <el-table-column prop="create_time" label="创建时间" width="250">
             </el-table-column>
-            <el-table-column prop="update_time" label="修改时间" width="200">
+            <el-table-column prop="update_time" label="修改时间" width="250">
             </el-table-column>
         </el-table>
   </div>
@@ -21,7 +21,33 @@
 
 <script>
 export default {
-
+  data(){
+    return{
+      tableData:[]
+    }
+  },
+  created(){
+    this.reZfb();
+  },
+  methods:{
+    reZfb(){
+      this.$http({
+        url:"api/alipay_order_query"
+      }).then(res=>{
+        if(res.data.status=='error'){
+          this.$message.error(res.data.msg);
+        }else{
+          let response = res.data;
+          console.log(res)
+          this.tableData = res.data.data
+          response.data.forEach(item => {
+                        item.create_time = new Date(item.create_time).toLocaleString();
+                        item.update_time = new Date(item.update_time).toLocaleString();
+          })
+        }
+      })
+    },
+  }   
 }
 </script>
 

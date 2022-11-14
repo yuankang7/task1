@@ -25,7 +25,7 @@
           <i class="el-icon-video-camera"></i>
           <span slot="title">视频管理</span>
       </el-menu-item>
-      <el-menu-item index="5">
+      <el-menu-item index="/model">
           <i class="el-icon-setting"></i>
           <span slot="title">模块管理</span>
       </el-menu-item>
@@ -37,11 +37,11 @@
           <i class="el-icon-sold-out"></i>
           <span slot="title">支付宝订单</span>
       </el-menu-item>
-      <el-menu-item index="8">
+      <el-menu-item index="/WxOrder">
           <i class="el-icon-sold-out"></i>
           <span slot="title">微信订单</span>
       </el-menu-item>
-      <el-menu-item index="9">
+      <el-menu-item index="/logs">
           <i class="el-icon-s-order"></i>
           <span slot="title">登录日志</span>
       </el-menu-item>
@@ -52,7 +52,6 @@
 export default {
   data() {
       return {
-          // isCollapse: false
           active: '/'
       };
   },
@@ -68,14 +67,7 @@ export default {
       isCollapse() {
           return this.$store.state.isCollapse;
       }
-  },
-  // created(){
-  //     //绑定事件 组件一旦渲染 立即给这个组件绑定了一个自定义事件名为
-  //     //changeCollapse
-  //     this.$EventBus.$on('changeCollapse', () => {
-  //         this.isCollapse = !this.isCollapse;
-  //     })
-  // }
+  }
 }
 </script>
 
